@@ -13,6 +13,8 @@ namespace filecollector
 
 	struct FileData
 	{
+		mutable std::mutex mtx;
+
 		size_t size = 0;
 		size_t received = 0;
 		std::map<size_t, std::vector<uint8_t>> chunks;
